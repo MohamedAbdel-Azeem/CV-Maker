@@ -1,7 +1,11 @@
+import { Header } from "./components/Header";
+import { WelcomePage } from "./pages/WelcomePage";
+
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <main className="h-screen w-screen bg-red-500">
+      <Header />
+      <WelcomePage />
+    </main>
   )
 }
