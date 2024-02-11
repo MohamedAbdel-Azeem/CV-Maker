@@ -3,13 +3,15 @@ $secondary: #38bdf8;
 $white: #fff;
 $gray: #9b9b9b;
 $black: #0f172a;
+$valid: #10b981;
+$invalid: #dc2626;
 
 
 .form__group {
   position: relative;
   padding: 15px 0 0;
   margin-top: 10px;
-  width: 200px;
+  width: 100%;
 }
 
 .form__field {
@@ -63,4 +65,24 @@ $black: #0f172a;
 /* reset input */
 .form__field{
   &:required,&:invalid { box-shadow:none; }
+}
+
+/* Required Input */
+
+.form__field.required {
+  border-color: $invalid;
+}
+
+.form__field.required ~ .form__label {
+  color: $invalid;
+}
+
+/* Valid Input */
+
+.form__field:valid {
+  border-color: $valid;
+}
+
+.form__field:valid ~ .form__label {
+  color: $valid;
 }
