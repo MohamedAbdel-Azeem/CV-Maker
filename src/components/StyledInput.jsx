@@ -9,12 +9,16 @@ export function StyledInput(props){
         setWasTouched(true);
     };
 
+    const handleChange = (event) => {
+        props.onChange(event.target.value);
+      };
+
     const inputClassName = `form__field ${wasTouched ? 'required' : ''}`
     const labelClassName = `form__label ${wasTouched ? 'required' : ''}`
 
     return (
         <div className="form__group field">
-            <input type={props.type} className= {inputClassName} onBlur={handleBlur} placeholder={props.text} name={props.text} id={props.id} required />
+            <input type={props.type} className= {inputClassName} onBlur={handleBlur} placeholder={props.text} name={props.text} id={props.id} onChange={handleChange} required />
             <label htmlFor={props.id} className={labelClassName}>{props.text}</label>
         </div>
     );
