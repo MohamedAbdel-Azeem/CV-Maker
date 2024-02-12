@@ -2,9 +2,9 @@ import { useState } from "react";
 import { CustomeStepper } from "../components/Stepper";
 import { PersonalPage } from "./form-pages/PersonalPage";
 import { EducationPage } from "./form-pages/EducationPage";
+import { ExperiencePage } from "./form-pages/ExperiencePage";
 
-
-export function FormPage(props) {
+export function FormPage() {
 
     const [formlvl, setFormlvl] = useState(0);
 
@@ -22,9 +22,9 @@ export function FormPage(props) {
     }
 
     const formPages = {
-        0: <PersonalPage next={nextFormLevel} setData={setPersonalData} />,
-        1: <EducationPage prev={prevFormLevel} next={nextFormLevel} setData={setEduData} />,
-        2: <div>Form Page 3</div>,
+        0: <PersonalPage next={nextFormLevel} setData={setPersonalData} data={personalData} />,
+        1: <EducationPage prev={prevFormLevel} next={nextFormLevel} setData={setEduData} data={eduData} />,
+        2: <ExperiencePage />, // Dummy page
     }
 
 

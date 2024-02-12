@@ -34,8 +34,8 @@ export function EducationPage(props) {
                 <StyledInput text="Field of Study*" type="text" id="field" onChange={setField} />
                 <StyledInput text="School Location*" type="text" id="schoolLocation" onChange={setSchoolLocation} />
                 <div className="w-full flex flex-row space-x-6">
-                    <StyledInput text="Start Date*" type="number" id="startDate" onChange={setStartDate} />
-                    <StyledInput text="Graduation Date*" type="number" id="gradDate" onChange={setGradDate} />
+                    <StyledInput text="Start Date*" type="text" id="startDate" onChange={setStartDate} />
+                    <StyledInput text="Graduation Date*" type="text" id="gradDate" onChange={setGradDate} />
                 </div>
                 <div className="flex flex-row space-x-4">
                     <StyledButton text="Back" onClick={props.prev} />

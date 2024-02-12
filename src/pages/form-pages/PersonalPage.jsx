@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyledInput } from "../../components/StyledInput";
 import { StyledButton } from "../../components/StyledButton";
+import { data } from "autoprefixer";
 
 export function PersonalPage(props){
     const [firstName, setFirstName] = useState('');
