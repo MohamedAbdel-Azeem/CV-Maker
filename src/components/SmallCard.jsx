@@ -1,5 +1,5 @@
 import Icon from '@mdi/react';
-import { mdiDelete , mdiPencil  } from '@mdi/js';
+import { mdiDelete } from '@mdi/js';
 
 export function SmallCard(props) {
 

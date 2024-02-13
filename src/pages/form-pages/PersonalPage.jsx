@@ -26,8 +26,9 @@ export function PersonalPage(props){
     };
 
     return (
-        <div>
+        <div className="pb-4">
             <form onSubmit={handleSubmit} className="w-full flex flex-col space-y-4 justify-start pt-5 px-4 text-center items-center">
+                <h2 className="text-2xl">Personal Information</h2>
                 <div className="w-full flex flex-row space-x-6">
                     <StyledInput text="First Name*" type="text" id="firstname" onChange={setFirstName} />
                     <StyledInput text="Last Name*" type="text" id="lastname" onChange={setLastName} />

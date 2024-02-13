@@ -27,7 +27,8 @@ export function EducationPage(props) {
 
 
     return (
-        <div>
+        <div className="pb-4">
+            <h2 className="text-2xl">Education</h2>
             <form onSubmit={handleSubmit} className="w-full flex flex-col space-y-4 justify-start pt-5 px-4 text-center items-center">
                 <StyledInput text="School Name*" type="text" id="schoolName" onChange={setSchoolName} />
                 <StyledInput text="Degree*" type="text" id="degree" onChange={setDegree} />

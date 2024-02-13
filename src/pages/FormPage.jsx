@@ -10,6 +10,7 @@ export function FormPage() {
 
     const [personalData, setPersonalData] = useState({});
     const [eduData, setEduData] = useState({});
+    const [expData, setExpData] = useState([]);
 
     function nextFormLevel(){
         const newlvl = formlvl + 1;
@@ -22,11 +23,13 @@ export function FormPage() {
     }
 
     const formPages = {
-        2: <PersonalPage next={nextFormLevel} setData={setPersonalData} data={personalData} />,
+        0: <PersonalPage next={nextFormLevel} setData={setPersonalData} data={personalData} />,
         1: <EducationPage prev={prevFormLevel} next={nextFormLevel} setData={setEduData} data={eduData} />,
-        0: <ExperiencePage />, // Dummy page
+        2: <ExperiencePage prev={prevFormLevel} setData={setExpData} submit={nextFormLevel} />,
+        3: <div>Preview</div>
     }
 
+    console.log(expData);
 
     return (
         <div className="w-full h-5/6 bg-slate-200 flex flex-col space-y-4 justify-start pt-12 px-4 text-center items-center overflow-y-auto">

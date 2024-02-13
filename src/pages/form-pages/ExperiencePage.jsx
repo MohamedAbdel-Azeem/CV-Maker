@@ -28,10 +28,20 @@ export function ExperiencePage(props) {
         setExperiencesElement([...experiencesElement, newExperienceElement]);
     };
 
+    const handleSubmit = () => {
+        props.setData(experienceData);
+        props.submit();
+    }
+
     return (
         <div className="flex flex-col items-center space-y-5">
+            <h2 className="text-2xl">Relevant Experience</h2>
             {experiencesElement}
             <button onClick={handleAdd}><Icon path={mdiPlusCircleOutline} size={2} color={"#475569"} /></button>
+            <div className="flex flex-row space-x-2 pb-4">
+                <StyledButton text="Back" onClick={props.prev} />
+                <StyledButton text="Generate CV" onClick={handleSubmit} />
+            </div>
         </div>
     );
 }
