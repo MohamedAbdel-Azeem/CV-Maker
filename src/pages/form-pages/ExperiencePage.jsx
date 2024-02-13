@@ -1,33 +1,36 @@
 import { useState } from "react";
 import { StyledInput , StyledTextArea } from "../../components/StyledInput";
 import { StyledButton } from "../../components/StyledButton";
+import { SmallCard } from "../../components/SmallCard";
 import { v4 as uuidv4 } from 'uuid';
 import Icon from '@mdi/react';
 import { mdiPlusCircleOutline } from '@mdi/js';
 
 export function ExperiencePage(props) {
-
-    const [experiences, setExperiences] = useState([]);
-    const [experienceData, setExperienceData] = useState({});
+    const [experiencesElement, setExperiencesElement] = useState([]);
+    const [experienceData, setExperienceData] = useState([]);
 
     const addExperience = (data) => {
-        let newExperience = experienceData;
-        newExperience[data['Experience Id']] = data;
+        const newExperience = [...experienceData, data];
         setExperienceData(newExperience);
     };
 
+    const handleDelete = (cardKey) => {
+        setExperienceData(prevExperienceData => prevExperienceData.filter(exp => exp['Experience Id'] !== cardKey));
+        setExperiencesElement(prevExperiencesElement => prevExperiencesElement.filter(element => element.props.ExperienceId !== cardKey));
+    };
 
     const handleAdd = () => {
-        const ExperienceId = uuidv4();
-        const newExperience = [...experiences, <ExperienceForm key={ExperienceId} setData={setExperienceData} ExperienceId = {ExperienceId} />];
-        setExperiences(newExperience);
-    }
-
-    console.log(experienceData);
+        const experienceId = uuidv4();
+        const newExperienceElement = (
+            <ExperienceForm key={experienceId} deleteFunction={handleDelete} setData={addExperience} ExperienceId={experienceId} />
+        );
+        setExperiencesElement([...experiencesElement, newExperienceElement]);
+    };
 
     return (
         <div className="flex flex-col items-center space-y-5">
-            {experiences}
+            {experiencesElement}
             <button onClick={handleAdd}><Icon path={mdiPlusCircleOutline} size={2} color={"#475569"} /></button>
         </div>
     );
@@ -63,13 +66,13 @@ function ExperienceForm(props){
     };
     if (savedData){
         return (
-            <Card 
-                companyName={savedData['Company Name']}
-                positionTitle={savedData['Position Title']}
+            <SmallCard
+                firstHeading={savedData['Company Name']}
+                SecondHeading={savedData['Position Title']}
                 startDate={savedData['Start Date']}
                 endDate={savedData['End Date']}
-                location={savedData['Location']}
-                description={savedData['Description']}
+                id={savedData['Experience Id']}
+                deleteExperience={props.deleteFunction}
             />
         );
     }
@@ -93,14 +96,3 @@ function ExperienceForm(props){
     );
 }
 
-function Card(props){
-    return (
-        <div className="w-96 bg-slate-300 flex flex-col space-y-4 justify-start pt-5 pb-4 px-8 text-center items-center rounded-xl shadow-md overflow-auto">
-            <h1>{props.companyName}</h1>
-            <h2>{props.positionTitle}</h2>
-            <h3>{props.startDate} - {props.endDate}</h3>
-            <h4>{props.location}</h4>
-            <p className="text-wrap">{props.description}</p>
-        </div>
-    );
-}
