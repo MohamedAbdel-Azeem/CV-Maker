@@ -1,0 +1,11 @@
+input[type="color"] {
+	opacity: 0;
+	display: block;
+	width: 100px;
+	height: 100px;
+	border: none;
+}
+.color-picker-wrapper {
+	float: left;
+  border-radius: 75%;
+}
