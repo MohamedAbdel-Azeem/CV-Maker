@@ -1,4 +1,4 @@
-
+import { LayoutStyler } from './Layout-editing/LayoutStyler';
 import { FontStyler } from './Layout-editing/FontStyler';
 
 import Icon from '@mdi/react';
@@ -22,14 +22,15 @@ export function SideBar(props){
 
 function EditLayout(props){
     const currentFont = props.data.currentFont;
+    const currentLayout = props.data.currentLayout;
     return (
         <div className="h-full px-4 flex-grow pt-10 bg-slate-50 flex flex-col space-y-6 justify-start text-center items-center overflow-y-auto">
             <div>
-                <h3>Layout</h3>
-                <div className='flex flex-row space-y-5'>
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
+                <h3 className='text-2xl font-medium'>Layout</h3>
+                <div className='mt-4 flex flex-row space-x-5 items-center justify-center'>
+                    <LayoutStyler layoutStyle={'flex-col'} layoutName={'Top'} isActive={'flex-col' === currentLayout} setCurrentLayout={props.data.setCurrentLayout}/>
+                    <LayoutStyler layoutStyle={'flex-row'} layoutName={'Left'} isActive={'flex-row' === currentLayout} setCurrentLayout={props.data.setCurrentLayout}/>
+                    <LayoutStyler layoutStyle={'flex-row-reverse'} layoutName={'Right'} isActive={'flex-row-reverse' === currentLayout} setCurrentLayout={props.data.setCurrentLayout}/>
                 </div>
             </div>
             <div>
