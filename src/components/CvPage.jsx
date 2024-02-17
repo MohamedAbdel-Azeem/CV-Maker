@@ -1,11 +1,10 @@
 import '../styles/cvPage.css';
+import { Accent } from './Cv-elements/Accent.jsx';
 
 export function CvPage(props){
     return (
         <div className={`Cv-page flex ${props.layoutStyle} ${props.currentFont}`}>
-            <div style={props.accentStyle} className='p-10'>
-                <h1>Accent</h1>
-            </div>
+            <Accent style={props.accentStyle} data={props.personalInfo}/>
             <div>
                 <h1>Rest</h1>
             </div>

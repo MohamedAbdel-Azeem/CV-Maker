@@ -7,7 +7,7 @@ export function PreviewPage(props){
     const [currentLayout, setCurrentLayout] = useState('flex-col');
 
     const [currentAccentColor , setCurrentAccentColor] = useState('#172554');
-    const [currentFontColor , setCurrentFontColor] = useState('#0f172a');
+    const [currentFontColor , setCurrentFontColor] = useState('#f1f5f9');
 
 
     const accentStyle = {
@@ -18,7 +18,7 @@ export function PreviewPage(props){
     const personalInfo = props.formData.personalData;
     const eduInfo = props.formData.eduData;
     const expInfo = props.formData.expData;
-    console.log(props.formData)
+    // console.log(personalInfo)
     return (
         <div className={`w-full h-5/6 bg-slate-200 flex flex-row justify-start text-center items-center overflow-y-auto`}>
             <SideBar currentFont={currentFont} setCurrentFont={setCurrentFont} currentLayout={currentLayout} setCurrentLayout={setCurrentLayout} currentAccentColor={currentAccentColor} setCurrentAccentColor={setCurrentAccentColor} currentFontColor={currentFontColor} setCurrentFontColor={setCurrentFontColor}/>
@@ -28,7 +28,7 @@ export function PreviewPage(props){
             <p>{eduInfo['School Name']}</p>
         </div> */}
         <div className='h-full w-full px-28 py-14 overflow-auto'>
-            <CvPage layoutStyle={currentLayout} currentFont={currentFont} accentStyle={accentStyle}/> 
+            <CvPage layoutStyle={currentLayout} currentFont={currentFont} accentStyle={accentStyle} personalInfo={personalInfo}/> 
         </div>
         </div>
     );
