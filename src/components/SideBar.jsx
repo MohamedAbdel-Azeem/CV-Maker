@@ -1,5 +1,6 @@
 import { LayoutStyler } from './Layout-editing/LayoutStyler';
 import { FontStyler } from './Layout-editing/FontStyler';
+import { StyledColorInput } from './Layout-editing/StyledColorInput';
 
 import Icon from '@mdi/react';
 import { mdiPencil , mdiCog } from '@mdi/js';
@@ -23,30 +24,21 @@ export function SideBar(props){
 function EditLayout(props){
     const currentFont = props.data.currentFont;
     const currentLayout = props.data.currentLayout;
+    const currentAccentColor = props.data.currentAccentColor;
+    const currentFontColor = props.data.currentFontColor;
     return (
-        <div className="h-full px-4 flex-grow pt-10 bg-slate-50 flex flex-col space-y-6 justify-start text-center items-center overflow-y-auto">
+        <div className="h-full px-4 flex-grow pt-6 bg-slate-50 flex flex-col space-y-6 justify-start text-center items-center overflow-y-auto">
             <div>
                 <h3 className='text-2xl font-medium'>Layout</h3>
-                <div className='mt-4 flex flex-row space-x-5 items-center justify-center'>
+                <div className='mt-4 flex flex-row space-x-7 items-center justify-center'>
                     <LayoutStyler layoutStyle={'flex-col'} layoutName={'Top'} isActive={'flex-col' === currentLayout} setCurrentLayout={props.data.setCurrentLayout}/>
                     <LayoutStyler layoutStyle={'flex-row'} layoutName={'Left'} isActive={'flex-row' === currentLayout} setCurrentLayout={props.data.setCurrentLayout}/>
                     <LayoutStyler layoutStyle={'flex-row-reverse'} layoutName={'Right'} isActive={'flex-row-reverse' === currentLayout} setCurrentLayout={props.data.setCurrentLayout}/>
                 </div>
             </div>
-            <div>
-                <h3>Colors</h3>
-                <div>
-                    <h4>Accent Color</h4>
-                    <div className='color-picker-wrapper'>
-                        <input type="color" className='color-picker'/>
-                    </div>
-                </div>
-                <div>
-                    <h4>Font Color</h4>
-                    <div className='color-picker-wrapper'>
-                        <input type="color"/>
-                    </div>
-                </div>
+            <div className='flex flex-col justify-center items-center space-y-3'>
+                <StyledColorInput text="Accent Color" currentColor={currentAccentColor} setCurrentColor={props.data.setCurrentAccentColor}/>
+                <StyledColorInput text= "Font Color" currentColor={currentFontColor} setCurrentColor={props.data.setCurrentFontColor}/>
             </div>
             <div className='flex flex-col space-y-4'>
                 <h3 className='text-2xl font-medium'>Fonts</h3>

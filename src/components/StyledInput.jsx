@@ -40,7 +40,7 @@ export function StyledTextArea(props){
 
     return (
         <div className="form__group field">
-            <textarea className= {inputClassName} placeholder={props.text} name={props.text} id={inputId} onChange={handleChange} />
+            <textarea className= {inputClassName} placeholder={props.text} name={props.text} id={inputId} onChange={handleChange}/>
             <label htmlFor={inputId} className={labelClassName}>{props.text} (Optional)</label>
         </div>
     );
