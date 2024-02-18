@@ -1,5 +1,6 @@
 import '../styles/cvPage.css';
 import { Accent } from './Cv-elements/Accent.jsx';
+import { EducationSection } from './Cv-elements/EducationSection.jsx';
 
 export function CvPage(props){
 
@@ -8,9 +9,7 @@ export function CvPage(props){
     return (
         <div className={`Cv-page flex ${props.layoutStyle} ${props.currentFont}`}>
             <Accent style={props.accentStyle} data={props.personalInfo} layoutStyle={AccentLayoutStyle}/>
-            <div>
-                <h1>Rest</h1>
-            </div>
+            <EducationSection data={props.eduInfo}/>
         </div>
     );
 }

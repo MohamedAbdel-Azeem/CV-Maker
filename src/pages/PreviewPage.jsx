@@ -28,7 +28,7 @@ export function PreviewPage(props){
             <p>{eduInfo['School Name']}</p>
         </div> */}
         <div className='h-full w-full px-28 py-14 overflow-auto'>
-            <CvPage layoutStyle={currentLayout} currentFont={currentFont} accentStyle={accentStyle} personalInfo={personalInfo}/> 
+            <CvPage layoutStyle={currentLayout} currentFont={currentFont} accentStyle={accentStyle} personalInfo={personalInfo} eduInfo={eduInfo}/> 
         </div>
         </div>
     );
