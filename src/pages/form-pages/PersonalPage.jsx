@@ -8,7 +8,7 @@ export function PersonalPage(props){
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [address, setAddress] = useState('');
+    const [country, setCountry] = useState('');
     const [city, setCity] = useState('');
 
     const handleSubmit = (event) => {
@@ -18,7 +18,7 @@ export function PersonalPage(props){
             'Last Name': lastName,
             'Email': email,
             'Phone': phone,
-            'Address': address,
+            'country': country,
             'City': city
         };
         props.next();
@@ -35,7 +35,7 @@ export function PersonalPage(props){
                 </div>
                 <StyledInput text="Email Address*" type="email" id="email" onChange={setEmail} />
                 <StyledInput text="Phone Number*" type="tel" id="phone" onChange={setPhone} />
-                <StyledInput text="Address*" type="text" id="address" onChange={setAddress} />
+                <StyledInput text="Country*" type="text" id="country" onChange={setCountry} />
                 <StyledInput text="City*" type="text" id="city" onChange={setCity} />
                 <div className="flex flex-row space-x-4">
                     <StyledButton text="Back" disabled={true} />
