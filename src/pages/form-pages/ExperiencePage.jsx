@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { StyledInput , StyledTextArea } from "../../components/StyledInput";
 import { StyledButton } from "../../components/StyledButton";
 import { SmallCard } from "../../components/SmallCard";
@@ -28,7 +29,12 @@ export function ExperiencePage(props) {
         setExperiencesElement([...experiencesElement, newExperienceElement]);
     };
 
+    useEffect(() => {
+        props.setData(experienceData);
+    }, [experienceData]);
+
     const handleSubmit = () => {
+        console.log(experienceData);
         props.setData(experienceData);
         props.submit();
     }
