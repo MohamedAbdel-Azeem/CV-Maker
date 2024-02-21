@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { LayoutStyler } from './Layout-editing/LayoutStyler';
 import { FontStyler } from './Layout-editing/FontStyler';
 import { StyledColorInput } from './Layout-editing/StyledColorInput';
@@ -9,13 +11,21 @@ import '../styles/ColorPicker.css';
 
 export function SideBar(props){
 
+    const [isLayoutEditor, setLayoutEditor] = useState(true);
+
     return (
         <div className='h-full flex flex-row bg-red-400'>
-            <div className="h-full bg-blue-900 flex flex-col space-y-6 justify-start pt-12 px-4 text-center items-center overflow-y-auto">
-                <Icon path={mdiPencil} size={1} color="#f1f5f9" />
-                <Icon path={mdiCog} size={1} color="#f1f5f9" />
+            <div className="h-full bg-blue-900 flex flex-col space-y-6 justify-start pt-12 px-4 text-center items-center">
+                <button onClick={() => setLayoutEditor(false)} className={`flex justify-center items-center p-1 rounded-3xl ${!isLayoutEditor? 'bg-slate-50 bg-opacity-25' : 'bg-transparent'}`}>
+                    <Icon path={mdiPencil} size={1} color="#f1f5f9" />
+                </button>
+                <button onClick={() => setLayoutEditor(true)} className={`flex justify-center items-center p-1 rounded-3xl ${isLayoutEditor? 'bg-slate-50 bg-opacity-25' : 'bg-transparent'}`}>
+                    <Icon path={mdiCog} size={1} color="#f1f5f9" />
+                </button>
             </div>
-            <EditLayout data={props}/>
+            <div className='w-80'>
+                {(isLayoutEditor) ? <EditLayout data={props}/> : <EditData data={props}/>}
+            </div>
         </div>
     );
 }
@@ -48,6 +58,14 @@ function EditLayout(props){
                     <FontStyler text="Mono" isActive={'font-mono' === currentFont} font="font-mono" setCurrentFont={props.data.setCurrentFont}/>
                 </div>
             </div>
+        </div>
+    );
+}
+
+function EditData(props){
+    return (
+        <div className='h-full px-4 flex-grow pt-6 bg-slate-50 flex flex-col space-y-6 justify-start text-center items-center overflow-y-auto'>
+            Edit Data
         </div>
     );
 }

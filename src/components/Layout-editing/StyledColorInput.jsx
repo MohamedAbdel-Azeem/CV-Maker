@@ -14,7 +14,7 @@ export function StyledColorInput(props){
         <div className="flex flex-col justify-center items-center">
             <h4 className='text-xl font-medium mb-3'>{props.text}</h4>
             <div className={`color-picker-wrapper shadow-xl`} style={backgroundStyle}>
-                <input type="color" className='color-picker' onChange={handleColorChange}/>
+                <input type="color" className='color-picker hover:cursor-pointer' onChange={handleColorChange}/>
             </div>
         </div>
     );
