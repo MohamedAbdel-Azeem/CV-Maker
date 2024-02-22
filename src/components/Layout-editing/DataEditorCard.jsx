@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Icon from '@mdi/react';
 import { mdiMenuDown } from '@mdi/js';
@@ -21,18 +21,24 @@ export function DataEditorCard(props) {
         const [Country, setCountry] = useState(props.personalData['country']);
         const [City, setCity] = useState(props.personalData['City']);
 
+        const [triggerUpdate, setTriggerUpdate] = useState(false);
+
         const handleChange = (setter) => {
-            setter(event.target.value);
-            const newPersonalData = {
-                'First Name': FirstName,
-                'Last Name': LastName,
-                'Email': Email,
-                'Phone': Phone,
-                'country': Country,
-                'City': City
-            };
-            props.dataModifiers(newPersonalData);
+          setter(event.target.value);
+          setTriggerUpdate(prevState => !prevState);  // Toggle the value of triggerUpdate
         };
+        
+        useEffect(() => {
+          const newPersonalData = {
+            'First Name': FirstName,
+            'Last Name': LastName,
+            'Email': Email,
+            'Phone': Phone,
+            'country': Country,
+            'City': City
+          };
+          props.dataModifiers(newPersonalData);
+        }, [triggerUpdate]);
 
         return (
             <div className="flex flex-col bg-gray-300 rounded-md p-4">
@@ -42,12 +48,12 @@ export function DataEditorCard(props) {
                 </button>
                 {expanded && (
                     <div>
-                        <StyledInput text="First Name" type="text" onChange={()=>{handleChange(setFirstName)}} value={FirstName} />
-                        <StyledInput text="Last Name" type="text" onChange={()=>{handleChange(setLastName)}} value={LastName} />
-                        <StyledInput text="Email" type="email" onChange={()=>{handleChange(setEmail)}} value={Email} />
-                        <StyledInput text="Phone" type="tel" onChange={()=>{handleChange(setPhone)}} value={Phone} />
-                        <StyledInput text="Country" type="text" onChange={()=>{handleChange(setCountry)}} value={Country} />
-                        <StyledInput text="City" type="text" onChange={()=>{handleChange(setCity)}} value={City} />
+                        <StyledInput text="First Name" type="text" onChange={()=>{handleChange(setFirstName)}} value={FirstName}/>
+                        <StyledInput text="Last Name" type="text" onChange={()=>{handleChange(setLastName)}} value={LastName}/>
+                        <StyledInput text="Email" type="email" onChange={()=>{handleChange(setEmail)}} value={Email}/>
+                        <StyledInput text="Phone" type="tel" onChange={()=>{handleChange(setPhone)}} value={Phone}/>
+                        <StyledInput text="Country" type="text" onChange={()=>{handleChange(setCountry)}} value={Country}/>
+                        <StyledInput text="City" type="text" onChange={()=>{handleChange(setCity)}} value={City}/>
                     </div>
                 )}
             </div>
