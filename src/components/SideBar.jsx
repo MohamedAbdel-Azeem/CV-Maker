@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { LayoutStyler } from './Layout-editing/LayoutStyler';
 import { FontStyler } from './Layout-editing/FontStyler';
 import { StyledColorInput } from './Layout-editing/StyledColorInput';
+import { StyledInput } from './StyledInput';
+import { DataEditorCard } from './Layout-editing/DataEditorCard';
 
 import Icon from '@mdi/react';
 import { mdiPencil , mdiCog } from '@mdi/js';
@@ -16,10 +18,10 @@ export function SideBar(props){
     return (
         <div className='h-full flex flex-row bg-red-400'>
             <div className="h-full bg-blue-900 flex flex-col space-y-6 justify-start pt-12 px-4 text-center items-center">
-                <button onClick={() => setLayoutEditor(false)} className={`flex justify-center items-center p-1 rounded-3xl ${!isLayoutEditor? 'bg-slate-50 bg-opacity-25' : 'bg-transparent'}`}>
+                <button onClick={() => setLayoutEditor(false)} className={`flex justify-center items-center p-1 rounded-3xl ${!isLayoutEditor? 'bg-blue-200 bg-opacity-25' : 'bg-transparent'}`}>
                     <Icon path={mdiPencil} size={1} color="#f1f5f9" />
                 </button>
-                <button onClick={() => setLayoutEditor(true)} className={`flex justify-center items-center p-1 rounded-3xl ${isLayoutEditor? 'bg-slate-50 bg-opacity-25' : 'bg-transparent'}`}>
+                <button onClick={() => setLayoutEditor(true)} className={`flex justify-center items-center p-1 rounded-3xl ${isLayoutEditor? 'bg-blue-200 bg-opacity-25' : 'bg-transparent'}`}>
                     <Icon path={mdiCog} size={1} color="#f1f5f9" />
                 </button>
             </div>
@@ -63,9 +65,13 @@ function EditLayout(props){
 }
 
 function EditData(props){
+    console.log(props.data.personalData)
     return (
         <div className='h-full px-4 flex-grow pt-6 bg-slate-50 flex flex-col space-y-6 justify-start text-center items-center overflow-y-auto'>
-            Edit Data
+            <h1 className='text-2xl underline underline-offset-4 font-medium'>Data Editor</h1>
+            <div className='w-full mt-4 flex flex-col items-start'>
+                <DataEditorCard title="Personal Information" personalData={props.data.personalData} dataModifiers={props.data.personalDataModifer}/>
+            </div>
         </div>
     );
 }

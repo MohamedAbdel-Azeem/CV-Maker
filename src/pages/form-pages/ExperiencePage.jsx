@@ -96,14 +96,14 @@ function ExperienceForm(props){
         
         <div>
             <form onSubmit={handleSubmit} className="w-full flex flex-col space-y-4 justify-start pt-5 px-4 text-center items-center">
-                <StyledInput text="Company Name*" type="text" onChange={setCompanyName} />
-                <StyledInput text="Position Title*" type="text" onChange={setPositionTitle} />
+                <StyledInput text="Company Name*" type="text" onChange={setCompanyName} value={companyName}/>
+                <StyledInput text="Position Title*" type="text" onChange={setPositionTitle} value={positionTitle}/>
                 <div className="w-full flex flex-row space-x-6">
-                    <StyledInput text="Start Date*" type="text" onChange={setStartDate} />
-                    <StyledInput text="End Date*" type="text" onChange={setEndDate} />
+                    <StyledInput text="Start Date*" type="text" onChange={setStartDate} value={startDate}/>
+                    <StyledInput text="End Date*" type="text" onChange={setEndDate} value={endDate}/>
                 </div>
-                <StyledInput text="Location*" type="text" onChange={setLocation} />
-                <StyledTextArea text="Description" type="text" onChange={setDescription} />
+                <StyledInput text="Location*" type="text" onChange={setLocation} value={location} />
+                <StyledTextArea text="Description" type="text" onChange={setDescription} value={description}/>
                 <div className="flex flex-row space-x-4">
                     <StyledButton type="submit" text="Save" />
                 </div>

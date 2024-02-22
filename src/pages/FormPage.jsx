@@ -12,7 +12,6 @@ export function FormPage(props) {
     const [eduData, setEduData] = useState({});
     const [expData, setExpData] = useState([]);
 
-
     useEffect(() => {
         props.getFormData({ personalData, eduData, expData });
     }, [personalData, eduData, expData]);

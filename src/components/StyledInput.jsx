@@ -3,7 +3,6 @@ import '../styles/StyledInput.scss';
 import { v4 as uuidv4 } from 'uuid';
 
 export function StyledInput(props){
-
     const [wasTouched, setWasTouched] = useState(false);
 
     const inputId = props.id ?? uuidv4();
@@ -21,7 +20,7 @@ export function StyledInput(props){
 
     return (
         <div className="form__group field">
-            <input type={props.type} className= {inputClassName} onBlur={handleBlur} placeholder={props.text} name={props.text} id={inputId} onChange={handleChange} required />
+            <input type={props.type} className= {inputClassName} onBlur={handleBlur} placeholder={props.text} name={props.text} id={inputId} onChange={handleChange} value={props.value} required />
             <label htmlFor={inputId} className={labelClassName}>{props.text}</label>
         </div>
     );
@@ -40,7 +39,7 @@ export function StyledTextArea(props){
 
     return (
         <div className="form__group field">
-            <textarea className= {inputClassName} placeholder={props.text} name={props.text} id={inputId} onChange={handleChange}/>
+            <textarea className= {inputClassName} placeholder={props.text} name={props.text} id={inputId} onChange={handleChange} value={props.value}/>
             <label htmlFor={inputId} className={labelClassName}>{props.text} (Optional)</label>
         </div>
     );
