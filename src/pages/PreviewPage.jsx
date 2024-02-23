@@ -15,7 +15,7 @@ export function PreviewPage(props) {
   };
 
   const [personalData, setPersonalData] = useState(props.formData.personalData);
-  const eduInfo = props.formData.eduData;
+  const [eduInfo,setEduData] = useState(props.formData.eduData);
   const expInfo = props.formData.expData;
 
   return (
@@ -33,6 +33,8 @@ export function PreviewPage(props) {
         setCurrentFontColor={setCurrentFontColor}
         personalData={personalData}
         personalDataModifer={setPersonalData}
+        eduData={eduInfo}
+        eduDataModifier={setEduData}
       />
       <div className="h-full w-full px-28 py-14 overflow-auto">
         <CvPage

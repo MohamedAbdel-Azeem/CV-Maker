@@ -69,8 +69,9 @@ function EditData(props){
     return (
         <div className='h-full px-4 flex-grow pt-6 bg-slate-50 flex flex-col space-y-6 justify-start text-center items-center overflow-y-auto'>
             <h1 className='text-2xl underline underline-offset-4 font-medium'>Data Editor</h1>
-            <div className='w-full mt-4 flex flex-col items-start'>
-                <DataEditorCard title="Personal Information" personalData={props.data.personalData} dataModifiers={props.data.personalDataModifer}/>
+            <div className='w-full mt-4 pb-4 flex flex-col items-start space-y-4'>
+                <DataEditorCard title="Personal Information" data={props.data.personalData} dataModifiers={props.data.personalDataModifer}/>
+                <DataEditorCard title="Education" data={props.data.eduData} dataModifiers={props.data.eduDataModifier}/>
             </div>
         </div>
     );
