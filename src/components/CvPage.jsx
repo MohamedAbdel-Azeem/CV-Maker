@@ -8,7 +8,7 @@ export function CvPage(props){
     const AccentLayoutStyle = (props.layoutStyle === 'flex-col')? 'flex-row' : 'flex-col';
     console.log(props);
     return (
-        <div className={`Cv-page flex ${props.layoutStyle} ${props.currentFont}`}>
+        <div id='cv-page' className={`Cv-page flex ${props.layoutStyle} ${props.currentFont}`}>
             <Accent style={props.accentStyle} data={props.personalInfo} layoutStyle={AccentLayoutStyle}/>
             <div className='flex flex-col items-center'>
                 <EducationSection data={props.eduInfo}/>

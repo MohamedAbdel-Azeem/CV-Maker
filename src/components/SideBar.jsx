@@ -3,9 +3,8 @@ import { useState } from 'react';
 import { LayoutStyler } from './Layout-editing/LayoutStyler';
 import { FontStyler } from './Layout-editing/FontStyler';
 import { StyledColorInput } from './Layout-editing/StyledColorInput';
-import { StyledInput } from './StyledInput';
 import { DataEditorCard } from './Layout-editing/DataEditorCard';
-
+import { StyledButton } from './StyledButton';
 import Icon from '@mdi/react';
 import { mdiPencil , mdiCog } from '@mdi/js';
 import '../styles/ColorPicker.css';

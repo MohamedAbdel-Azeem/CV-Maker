@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { SideBar } from "../components/SideBar";
 import { CvPage } from "../components/CvPage";
+import {generatePdf} from '../utils/divToPDFConverter';
+import { StyledButton } from "../components/StyledButton";
 
 export function PreviewPage(props) {
   const [currentFont, setCurrentFont] = useState("font-sans");
@@ -37,6 +39,9 @@ export function PreviewPage(props) {
         eduDataModifier={setEduData}
       />
       <div className="h-full w-full px-28 py-14 overflow-auto">
+      <div className="w-full flex items-center justify-start p-2">
+        <StyledButton text="Download CV" onClick={generatePdf} />
+      </div>
         <CvPage
           layoutStyle={currentLayout}
           currentFont={currentFont}
