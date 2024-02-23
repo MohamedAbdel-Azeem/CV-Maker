@@ -1,8 +1,22 @@
-# React + Vite
+# CV Maker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CV Maker is a React application that allows users to create a professional CV in a few simple steps. Users can input their personal information, education information, and work experience and a CV is generated based on this information. Users can also customize the layout and font of the CV to suit their preferences. Once the CV is ready, it can be downloaded as a PDF.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User-friendly form for entering personal data, education information, and work experience.
+- Customizable CV layout and font.
+- CV can be downloaded as a PDF.
+
+
+## Usage
+
+To use the CV Maker, follow these steps:
+
+1. Enter your personal data, education information, and work experience in the provided form.
+2. Customize the layout and font of the CV as desired.
+3. Click the "Download CV" button to download your CV as a PDF.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request.
